@@ -25,15 +25,12 @@ function setColor(element) {
 }
 
 document.querySelector(".btn_size").addEventListener("click", () => {
-  let boxCount = parseInt(
-    prompt("Введите количество квадратов (максимум 100):"),
-    10
-  );
-  if (isNaN(boxCount) || boxCount < 1 || boxCount > 100) {
+  let boxCount = prompt("Введите количество квадратов (максимум 100):");
+  if (!boxCount || isNaN(boxCount) || boxCount < 1 || boxCount > 100) {
     alert("Пожалуйста, введите число от 1 до 100.");
-  } else {
-    createBoxes(boxCount);
+    return;
   }
+  createBoxes(parseInt(boxCount, 10));
 });
 
 document.querySelector(".btn_clean").addEventListener("click", () => {
